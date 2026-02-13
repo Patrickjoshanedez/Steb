@@ -208,6 +208,7 @@ yesBtn.addEventListener('click', () => {
     music3.currentTime = 0;
     music3.play().catch(e => console.log('music3 play failed:', e));
     
+    document.body.classList.add('popup-active');
     overlay.classList.add('show');
     popup.classList.add('show');
 
@@ -251,4 +252,5 @@ noBtn.addEventListener('click', () => {
 overlay.addEventListener('click', () => {
     popup.classList.remove('show');
     overlay.classList.remove('show');
+    document.body.classList.remove('popup-active');
 });
