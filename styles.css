@@ -1,0 +1,701 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #E6D5F5 0%, #9B59B6 50%, #6C3483 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Falling Dinosaurs Animation */
+.falling-dino {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    animation: heartPop 3s ease-out forwards;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.falling-dino img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+@keyframes heartPop {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1.2) rotate(15deg);
+    }
+    40% {
+        transform: scale(1) rotate(-10deg);
+    }
+    60% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8) rotate(0deg);
+    }
+}
+
+/* Floating Flowers */
+.flower {
+    position: absolute;
+    font-size: 35px;
+    animation: float 3s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.flower:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+.flower:nth-child(2) { top: 25%; right: 15%; animation-delay: 0.5s; }
+.flower:nth-child(3) { top: 65%; left: 12%; animation-delay: 1s; }
+.flower:nth-child(4) { top: 70%; right: 10%; animation-delay: 1.5s; }
+.flower:nth-child(5) { top: 40%; left: 5%; animation-delay: 2s; }
+.flower:nth-child(6) { top: 50%; right: 8%; animation-delay: 2.5s; }
+
+/* Main Container */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 50px 40px;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(108, 52, 131, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    max-width: 500px;
+    width: 90%;
+}
+
+.dino {
+    font-size: 100px;
+    animation: bounce 1s ease-in-out infinite;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.dino img {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.05);
+    }
+}
+
+h1 {
+    font-size: 42px;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(108, 52, 131, 0.5);
+    margin-bottom: 40px;
+    line-height: 1.3;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+button {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#yesBtn {
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    color: white;
+    transform-origin: center;
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+#noBtn {
+    background: linear-gradient(135deg, #9B59B6, #6C3483);
+    color: white;
+    opacity: 1;
+    transition: all 0.3s ease, opacity 0.5s ease;
+}
+
+#noBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(108, 52, 131, 0.4);
+}
+
+#noBtn.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    padding: 40px 60px;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    text-align: center;
+    transition: transform 0.4s ease;
+}
+
+.popup.show {
+    display: block;
+    animation: popupShow 0.4s ease forwards;
+}
+
+@keyframes popupShow {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.popup h2 {
+    font-size: 48px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.popup-emoji {
+    font-size: 60px;
+    animation: spin 1s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* CSS Flower Bouquet */
+.flower-bouquet {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    animation: bouquetAppear 0.6s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes bouquetAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+.css-flower {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: flowerSway 2s ease-in-out infinite;
+}
+
+.css-flower:nth-child(1) { animation-delay: 0s; }
+.css-flower:nth-child(2) { animation-delay: 0.2s; }
+.css-flower:nth-child(3) { animation-delay: 0.4s; }
+.css-flower:nth-child(4) { animation-delay: 0.6s; }
+.css-flower:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes flowerSway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    z-index: 9999;
+    animation: confettiFall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Popup Hearts */
+.popup-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.popup-heart {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: popupHeartFloat 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.popup-heart img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+@keyframes popupHeartFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-15px) rotate(5deg) scale(1.1);
+        opacity: 1;
+    }
+}
+.flower-head {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.petal {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #BA55D3, #9370DB);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.petal:nth-child(1) { top: -5px; left: 50%; transform: translateX(-50%); }
+.petal:nth-child(2) { bottom: -5px; left: 50%; transform: translateX(-50%); }
+.petal:nth-child(3) { left: -5px; top: 50%; transform: translateY(-50%); }
+.petal:nth-child(4) { right: -5px; top: 50%; transform: translateY(-50%); }
+.petal:nth-child(5) { top: 2px; left: 2px; transform: rotate(45deg); }
+.petal:nth-child(6) { top: 2px; right: 2px; transform: rotate(-45deg); }
+.petal:nth-child(7) { bottom: 2px; left: 2px; transform: rotate(-45deg); }
+.petal:nth-child(8) { bottom: 2px; right: 2px; transform: rotate(45deg); }
+
+.flower-center {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+}
+
+.flower-stem {
+    width: 3px;
+    height: 35px;
+    background: linear-gradient(to bottom, #90EE90, #228B22);
+    border-radius: 2px;
+    position: relative;
+}
+
+.flower-leaf {
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    background: linear-gradient(135deg, #90EE90, #32CD32);
+    border-radius: 50% 0;
+    transform: rotate(-30deg);
+    top: 15px;
+    left: -8px;
+}
+
+.flower-leaf:nth-child(2) {
+    transform: rotate(30deg) scaleX(-1);
+    left: auto;
+    right: -8px;
+    top: 20px;
+}
+
+/* Different shades of purple flowers */
+.css-flower:nth-child(1) .petal { background: linear-gradient(135deg, #BA55D3, #9370DB); }
+.css-flower:nth-child(2) .petal { background: linear-gradient(135deg, #9370DB, #8A2BE2); }
+.css-flower:nth-child(3) .petal { background: linear-gradient(135deg, #DDA0DD, #BA55D3); }
+.css-flower:nth-child(4) .petal { background: linear-gradient(135deg, #8A2BE2, #9400D3); }
+.css-flower:nth-child(5) .petal { background: linear-gradient(135deg, #DA70D6, #BA55D3); }
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* Responsive Design */
+
+/* Large Tablets and Small Desktops (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 450px;
+        padding: 40px 35px;
+    }
+    
+    h1 {
+        font-size: 38px;
+    }
+    
+    .dino {
+        font-size: 90px;
+    }
+    
+    button {
+        font-size: 22px;
+        padding: 16px 35px;
+    }
+    
+    .flower {
+        font-size: 30px;
+    }
+    
+    .falling-dino {
+        font-size: 25px;
+    }
+}
+
+/* Tablets (600px - 768px) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 400px;
+        padding: 35px 25px;
+    }
+    
+    h1 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+    
+    .dino {
+        font-size: 80px;
+    }
+    
+    button {
+        font-size: 21px;
+        padding: 15px 32px;
+        min-width: 120px;
+    }
+    
+    .button-container {
+        gap: 15px;
+    }
+    
+    .popup h2 {
+        font-size: 42px;
+    }
+    
+    .popup-emoji {
+        font-size: 50px;
+    }
+    
+    .popup {
+        padding: 35px 50px;
+    }
+    
+    .flower-bouquet {
+        bottom: -40px;
+        gap: 6px;
+    }
+    
+    .css-flower {
+        transform: scale(0.9);
+    }
+}
+
+/* Mobile Devices (up to 600px) */
+@media (max-width: 600px) {
+    body {
+        background: linear-gradient(135deg, #E6D5F5 0%, #9B59B6 100%);
+    }
+    
+    .container {
+        max-width: 95%;
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 28px;
+        margin-bottom: 25px;
+        line-height: 1.2;
+    }
+    
+    .dino {
+        font-size: 70px;
+        margin-bottom: 15px;
+    }
+    
+    button {
+        font-size: 18px;
+        padding: 14px 28px;
+        min-width: 110px;
+        white-space: nowrap;
+    }
+    
+    .button-container {
+        gap: 12px;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .flower {
+        font-size: 25px;
+    }
+    
+    .falling-dino {
+        font-size: 22px;
+    }
+    
+    .popup {
+        padding: 30px 40px;
+        max-width: 90%;
+    }
+    
+    .popup h2 {
+        font-size: 36px;
+    }
+    
+    .popup-emoji {
+        font-size: 45px;
+    }
+    
+    .flower-bouquet {
+        bottom: -35px;
+        gap: 5px;
+    }
+    
+    .css-flower {
+        transform: scale(0.8);
+    }
+}
+
+/* Small Mobile Devices (up to 400px) */
+@media (max-width: 400px) {
+    .container {
+        padding: 25px 15px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .dino {
+        font-size: 60px;
+    }
+    
+    button {
+        font-size: 16px;
+        padding: 12px 24px;
+        min-width: 100px;
+    }
+    
+    .button-container {
+        gap: 10px;
+    }
+    
+    .flower {
+        font-size: 20px;
+    }
+    
+    .falling-dino {
+        font-size: 18px;
+    }
+    
+    .popup {
+        padding: 25px 30px;
+    
+    .flower-bouquet {
+        bottom: -30px;
+        gap: 4px;
+    }
+    
+    .css-flower {
+        transform: scale(0.7);
+    }
+    }
+    
+    .popup h2 {
+        font-size: 30px;
+    }
+    
+    .popup-emoji {
+        font-size: 40px;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        overflow-y: auto;
+    }
+    
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    .dino {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    
+    .button-container {
+        margin-top: 10px;
+    
+    .flower-bouquet {
+        bottom: -25px;
+        gap: 3px;
+    }
+    
+    .css-flower {
+        transform: scale(0.6);
+    }
+    }
+    
+    .flower {
+        display: none;
+    }
+    
+    .popup {
+        padding: 20px 30px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 20px;
+    }
+    
+    .dino {
+        font-size: 50px;
+    }
+    
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+        min-width: 90px;
+    
+    .flower-bouquet {
+        bottom: -25px;
+        gap: 3px;
+    }
+    
+    .css-flower {
+        transform: scale(0.65);
+    }
+    }
+    
+    .popup h2 {
+        font-size: 26px;
+    }
+    
+    .popup-emoji {
+        font-size: 35px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    button:active {
+        transform: scale(0.95);
+    }
+}

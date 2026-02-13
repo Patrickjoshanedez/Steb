@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💜🦖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hidden Audio Players -->
+    <audio id="backgroundMusic" autoplay loop preload="auto">
+        <source src="sfx/music.mp3" type="audio/mpeg">
+        <source src="sfx/music.wav" type="audio/wav">
+        <source src="sfx/music.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <audio id="music2" preload="auto">
+        <source src="sfx/music2.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="music3" preload="auto">
+        <source src="sfx/music3.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="music4" preload="auto">
+        <source src="sfx/music4.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="music5" preload="auto">
+        <source src="sfx/music5.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Falling Dinosaurs Background -->
+    <div id="falling-dinos"></div>
+
+    <!-- Floating Flowers -->
+    <div class="flower">🌸</div>
+    <div class="flower">💐</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌹</div>
+    <div class="flower">🌼</div>
+
+    <!-- Overlay for Popup -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">        <div class="popup-hearts" id="popupHearts"></div>        <div class="popup-emoji">💜🦖🌸</div>
+        <h2>Yay!</h2>
+        <div class="flower-bouquet" id="flowerBouquet">
+            <div class="css-flower">
+                <div class="flower-head">
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="flower-center"></div>
+                </div>
+                <div class="flower-stem">
+                    <div class="flower-leaf"></div>
+                    <div class="flower-leaf"></div>
+                </div>
+            </div>
+            <div class="css-flower">
+                <div class="flower-head">
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="flower-center"></div>
+                </div>
+                <div class="flower-stem">
+                    <div class="flower-leaf"></div>
+                    <div class="flower-leaf"></div>
+                </div>
+            </div>
+            <div class="css-flower">
+                <div class="flower-head">
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="flower-center"></div>
+                </div>
+                <div class="flower-stem">
+                    <div class="flower-leaf"></div>
+                    <div class="flower-leaf"></div>
+                </div>
+            </div>
+            <div class="css-flower">
+                <div class="flower-head">
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="flower-center"></div>
+                </div>
+                <div class="flower-stem">
+                    <div class="flower-leaf"></div>
+                    <div class="flower-leaf"></div>
+                </div>
+            </div>
+            <div class="css-flower">
+                <div class="flower-head">
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="flower-center"></div>
+                </div>
+                <div class="flower-stem">
+                    <div class="flower-leaf"></div>
+                    <div class="flower-leaf"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="dino" id="dinoContainer">
+            <span id="dinoEmoji" style="font-size: 100px;">🦖</span>
+            <img id="dinoImage" src="" alt="Dinosaur" style="width: 200px; height: 200px; display: none;">
+        </div>
+        <h1>Will you be my Valentine?</h1>
+        <div class="button-container">
+            <button id="yesBtn">Yes 💜</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
