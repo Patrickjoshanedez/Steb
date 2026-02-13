@@ -7,11 +7,15 @@
 body {
     font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
     min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
     background: linear-gradient(135deg, #E6D5F5 0%, #9B59B6 50%, #6C3483 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    overscroll-behavior: none;
     position: relative;
     padding: 10px;
 }
@@ -492,6 +496,9 @@ button {
     body {
         background: linear-gradient(135deg, #E6D5F5 0%, #9B59B6 100%);
         padding: 15px;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
     }
     
     .container {
@@ -499,6 +506,8 @@ button {
         width: 100%;
         padding: 30px 20px;
         margin: 0 auto;
+        max-height: calc(100dvh - 30px);
+        overflow: hidden;
     }
     
     h1 {
@@ -636,12 +645,14 @@ button {
 /* Landscape orientation on mobile */
 @media (max-height: 500px) and (orientation: landscape) {
     body {
-        overflow-y: auto;
+        overflow: hidden;
     }
     
     .container {
-        margin: 20px auto;
-        padding: 20px;
+        margin: 0 auto;
+        padding: 16px;
+        max-height: calc(100dvh - 20px);
+        overflow: hidden;
     }
     
     .dino {
@@ -661,15 +672,15 @@ button {
     
     .button-container {
         margin-top: 10px;
-    
+    }
+
     .flower-bouquet {
         bottom: -25px;
         gap: 3px;
     }
-    
+
     .css-flower {
         transform: scale(0.6);
-    }
     }
     
     .flower {
