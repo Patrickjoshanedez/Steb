@@ -13,13 +13,14 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
+    padding: 10px;
 }
 
 /* Falling Dinosaurs Animation */
 .falling-dino {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
     animation: heartPop 3s ease-out forwards;
     opacity: 0;
     pointer-events: none;
@@ -94,6 +95,8 @@ body {
     z-index: 10;
     max-width: 500px;
     width: 90%;
+    margin: 0 auto;
+    position: relative;
 }
 
 .dino {
@@ -294,8 +297,8 @@ button {
 
 .popup-heart {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     animation: popupHeartFloat 3s ease-in-out infinite;
     pointer-events: none;
 }
@@ -488,12 +491,14 @@ button {
 @media (max-width: 600px) {
     body {
         background: linear-gradient(135deg, #E6D5F5 0%, #9B59B6 100%);
+        padding: 15px;
     }
     
     .container {
-        max-width: 95%;
+        max-width: 100%;
+        width: 100%;
         padding: 30px 20px;
-        margin: 10px;
+        margin: 0 auto;
     }
     
     h1 {
@@ -525,12 +530,25 @@ button {
     }
     
     .falling-dino {
-        font-size: 22px;
+        width: 20px;
+        height: 20px;
     }
     
     .popup {
         padding: 30px 40px;
         max-width: 90%;
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .popup.show {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    .popup-heart {
+        width: 30px;
+        height: 30px;
     }
     
     .popup h2 {
@@ -555,6 +573,7 @@ button {
 @media (max-width: 400px) {
     .container {
         padding: 25px 15px;
+        width: 100%;
     }
     
     h1 {
@@ -581,11 +600,20 @@ button {
     }
     
     .falling-dino {
-        font-size: 18px;
+        width: 18px;
+        height: 18px;
     }
     
     .popup {
         padding: 25px 30px;
+        width: 95%;
+        max-width: 95%;
+    }
+    
+    .popup-heart {
+        width: 25px;
+        height: 25px;
+    }
     
     .flower-bouquet {
         bottom: -30px;
@@ -594,7 +622,6 @@ button {
     
     .css-flower {
         transform: scale(0.7);
-    }
     }
     
     .popup h2 {
@@ -668,6 +695,17 @@ button {
         font-size: 14px;
         padding: 10px 20px;
         min-width: 90px;
+    }
+    
+    .falling-dino {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .popup-heart {
+        width: 22px;
+        height: 22px;
+    }
     
     .flower-bouquet {
         bottom: -25px;
@@ -676,7 +714,6 @@ button {
     
     .css-flower {
         transform: scale(0.65);
-    }
     }
     
     .popup h2 {
